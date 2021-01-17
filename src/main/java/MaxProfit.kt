@@ -3,15 +3,11 @@ fun main() {
 }
 
 fun maxProfit(A: IntArray): Int {
-    var maxProfit = 0; var buyPrice = Int.MAX_VALUE; var sellPrice = 0
+    var maxProfit = 0; var buyPrice = Int.MAX_VALUE
 
-    for (i in A.indices) {
-        if (A[i] < buyPrice) {
-            buyPrice = A[i]
-        } else if (sellPrice < A[i]) {
-            sellPrice = A[i]
-        }
-        maxProfit = Math.max(maxProfit, sellPrice - buyPrice)
+    for (i in A) {
+        buyPrice = Math.min(buyPrice, i)
+        maxProfit = Math.max(maxProfit, i - buyPrice)
 
     }
     return maxProfit
