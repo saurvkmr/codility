@@ -1,5 +1,7 @@
+import kotlin.math.abs
+
 fun main() {
-    print(nonAdj(intArrayOf(5,2,3,4,1)))
+    print(nonAdj(intArrayOf(4,5,21,12,33,2,3,1)))
 }
 
 fun nonAdj(A: IntArray): Int {
@@ -7,7 +9,7 @@ fun nonAdj(A: IntArray): Int {
     //var sum = 0
     var min = Int.MAX_VALUE; var secondMin = Int.MAX_VALUE; var thirdMin = Int.MAX_VALUE
     var minIdx = 0; var secondMinIdx = 0; var thirdMinIdx = 0;
-    for (i in 1..A.size-2) {
+    for (i in 1 until A.size-1) {
         when {
             min > A[i] -> {
                 thirdMin = secondMin
@@ -29,12 +31,12 @@ fun nonAdj(A: IntArray): Int {
             }
         }
     }
-    //print("$min $sMin $tMin $minIdx $sMinIdx $tMinIdx ")
-    if (secondMinIdx != minIdx + 1) {
+    if (abs(secondMinIdx - minIdx) > 1) {
         return secondMin + min
     }
-    if (thirdMinIdx != minIdx + 1) {
+    if (abs(thirdMinIdx - minIdx) > 1) {
         return thirdMin + min
     }
     return secondMin + thirdMin
+
 }

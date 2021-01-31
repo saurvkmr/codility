@@ -9,28 +9,28 @@ public class DeleteForUniqOccurence {
     }
 
     static int minDelete(String S) {
-        Map<Character, Integer> occrCount = new HashMap<>();
+        Map<Character, Integer> occurenceCount = new HashMap<>();
         for (int i = 0; i < S.length(); i++) {
             char c = S.charAt(i);
-            int count = occrCount.getOrDefault(c,0);
-            occrCount.put(c, count+1);
+            int count = occurenceCount.getOrDefault(c,0);
+            occurenceCount.put(c, count+1);
         }
-        Set<Integer> freqTaken = new HashSet<>();
+        Set<Integer> takenFrequencies = new HashSet<>();
         int cost = 0;
-        for (Map.Entry<Character, Integer> entry : occrCount.entrySet()) {
-            int freq = entry.getValue();
-            if (freqTaken.contains(freq)) {
-                while(freq > 0) {
-                    freq--;
+        for (Map.Entry<Character, Integer> entry : occurenceCount.entrySet()) {
+            int frequency = entry.getValue();
+            if (takenFrequencies.contains(frequency)) {
+                while(frequency > 0) {
+                    frequency--;
                     cost++;
-                    if (freqTaken.contains(freq)) {
+                    if (takenFrequencies.contains(frequency)) {
                         continue;
                     }
-                    freqTaken.add(freq);
+                    takenFrequencies.add(frequency);
                     break;
                 }
             }
-            freqTaken.add(freq);
+            takenFrequencies.add(frequency);
         }
         return cost;
     }
