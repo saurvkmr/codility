@@ -1,3 +1,4 @@
+// https://app.codility.com/programmers/task/dream_team/
 fun main() {
     print(dreamTeam(intArrayOf(7, 1, 4, 4), intArrayOf(5, 3, 4, 3), 2))
 }
