@@ -7,7 +7,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class Test {
 
     public static void main(String[] args) {
-        createSelectQuery("/Users/s0k02c9/Desktop/NSF_International_create_table.sql");
+        System.out.println((int)Math.floor(Math.sqrt(14)));
+        //createSelectQuery("/Users/s0k02c9/Desktop/NSF_International_create_table.sql");
     }
 
     private static void createSelectQuery(String filePath) {

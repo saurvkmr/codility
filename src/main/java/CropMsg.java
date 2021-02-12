@@ -15,7 +15,7 @@ public class CropMsg {
         if (message.length() <= K)
             return message;
         String[] msgArr = message.split(" ");
-        List<String> strings = new ArrayList<>();
+        List<String> strings = new ArrayList<>(msgArr.length);
         for (String msg : msgArr) {
             if (totalLength + msg.length() <= K) {
                 strings.add(msg);

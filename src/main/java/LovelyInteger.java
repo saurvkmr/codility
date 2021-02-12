@@ -24,13 +24,15 @@ public class LovelyInteger {
         Map<Character, Integer> charCount = new HashMap<>();
         for (int i = 0; i < num.length(); i++) {
             int count = charCount.getOrDefault(num.charAt(i), 0);
-            charCount.put(num.charAt(i), ++count);
+            if (++count > 2)
+                return false;
+            charCount.put(num.charAt(i), count);
         }
-        for (Map.Entry<Character, Integer> entry : charCount.entrySet()) {
+        /*for (Map.Entry<Character, Integer> entry : charCount.entrySet()) {
             if (entry.getValue() > 2) {
                 return false;
             }
-        }
+        }*/
         return true;
     }
 }
