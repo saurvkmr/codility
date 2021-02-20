@@ -1,12 +1,11 @@
 fun solution(X: Int, Y: Int, D: Int): Int {
     // write your code in Kotlin
-    val dis = Y - X;
-    if (dis % D != 0) {
-        return (dis / D) + 1
-    }
-    return dis / D
+    val dis = Y - X
+    var res = (dis / D)
+    return if (dis % D == 0) res else ++res
 }
 
 fun main() {
-    print(solution(0, 90, 30))
+    print(solution(10, 85, 30))
 }
+
