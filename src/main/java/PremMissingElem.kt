@@ -1,13 +1,14 @@
+
+import java.util.Arrays
+
+
 fun solution(A: IntArray): Int {
-    var exp = A.size
-    var sum = 0
-
-    for (i in A.indices) {
-        sum += A[i]
-        exp += i+1
+    Arrays.sort(A)
+    var i = 0
+    while (i < A.size) {
+        if (A[i] !== ++i) return i
     }
-
-    return exp - sum + 1
+    return ++i
 }
 
 fun main() {
