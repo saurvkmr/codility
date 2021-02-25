@@ -12,8 +12,10 @@ public class DeleteForUniqOccurence {
         Map<Character, Integer> occurenceCount = new HashMap<>();
         for (int i = 0; i < S.length(); i++) {
             char c = S.charAt(i);
-            int count = occurenceCount.getOrDefault(c,0);
-            occurenceCount.put(c, count+1);
+            /*int count = occurenceCount.getOrDefault(c,0);
+            occurenceCount.put(c, count+1);*/
+            occurenceCount.computeIfAbsent(c, k -> 0);
+            occurenceCount.computeIfPresent(c, (k,v) -> v+1);
         }
         Set<Integer> takenFrequencies = new HashSet<>();
         int cost = 0;
